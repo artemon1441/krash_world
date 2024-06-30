@@ -222,7 +222,7 @@ async function foo(){
             {names[i] ? names[i] : (
               <div className="table-address-name">
                 <p>{user.address.slice(0,6) + '.....' + user.address.slice(-4)}</p>
-               {user.email !='temp' && user.email !='none' ? <p>{user.email}</p> : null}
+               {user.email !='temp' && user.email !='none' ? <p>{user.email.split('@')[0]}</p> : null}
               </div>
             )}
           </div>
@@ -235,6 +235,11 @@ async function foo(){
 
 
 async function sendEmailInfo(emailInput){
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput)) {
+    toast.error("Please enter a valid email address")
+    return;
+  }
   fetch(`/api/email`, {
     method: 'GET',
     headers: {
