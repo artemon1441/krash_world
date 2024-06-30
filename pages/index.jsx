@@ -185,8 +185,9 @@ async function foo(){
 
   function getTime(timestamp){
     if(timestamp == 0){
-      return '00:00'
+      return '99:99'
     }
+    console.log(timestamp)
     let seconds = timestamp.split('.')[0]
     let milliseconds = timestamp.split('.')[1]
     return seconds + ':' + milliseconds.substring(0, 2);
@@ -219,7 +220,7 @@ async function foo(){
             {/* {user.address.slice(0,6) + '.....' + user.address.slice(-4)} */}
             {/* {user.address} */}
             {names[i] ? names[i] : (
-              <div className="">
+              <div className="table-address-name">
                 <p>{user.address.slice(0,6) + '.....' + user.address.slice(-4)}</p>
                {user.email !='temp' && user.email !='none' ? <p>{user.email}</p> : null}
               </div>
