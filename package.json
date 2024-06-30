@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@thirdweb-dev/react": "^4.9.4",
+    "@thirdweb-dev/wallets": "^2.5.39",
+    "@walletconnect/modal": "^2.6.2",
     "next": "14.2.4",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-toastify": "^10.0.5",
+    "ethers": "5.4"
   },
   "devDependencies": {
     "eslint": "9.6.0",
