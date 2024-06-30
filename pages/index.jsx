@@ -61,7 +61,7 @@ export default function Home() {
                 headers: {
                   'Content-Type': 'application/json',
                   'address':address,
-                  'timestamp':0
+                  'timestamp':0.01
                 }
               })
               .then(data => {
@@ -82,7 +82,14 @@ export default function Home() {
         })
         .then(data => {
           data.json().then( res =>{
-            let arr = res.users.sort((a, b) => b.timestamp - a.timestamp);
+            // let arr = res.users.sort((a, b) => b.timestamp - a.timestamp);
+            let arr = []
+            res.users.forEach((e,i) => {
+              e.timestamp = (100 - Number(e.timestamp)).toString()
+              arr.push(e)
+            })
+             arr = arr.sort((a, b) => a.timestamp - b.timestamp);
+
             arr.forEach((e,i) => {
               e.place = i+1
             });
